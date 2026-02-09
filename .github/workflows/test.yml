@@ -1,0 +1,27 @@
+name: test
+on:
+  push:
+    branches:
+      - "**"
+  workflow_dispatch:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        name: Get source code
+      - name: Run unit tests
+        id: RunUnitTest
+        run: |
+          go install github.com/swaggo/swag/cmd/swag@latest
+          swag init
+          go test -coverprofile=coverage.out -v ./...
+          go build
+          echo 'CODE_COVERAGE<<EOF' >> "$GITHUB_OUTPUT"
+          cat coverage.out >> "$GITHUB_OUTPUT"
+          echo 'EOF' >> "$GITHUB_OUTPUT"
+      - name: Publish evidence
+        uses: cloudbees-io-gha/publish-evidence-item@v2
+        with:
+          content: |-
+            ${{ steps.RunUnitTest.outputs.CODE_COVERAGE }}
