@@ -39,4 +39,13 @@ jobs:
       versionStart: "3.0"
       repo: cb-golden-demo-org/sd-hackers-api
     needs: test
+  build2:
+    uses: cb-golden-demo-org/sd-hackers-workflows/container-build.yaml
+    vars: inherit
+    secrets: inherit
+    with:
+      appName: hackers-api2
+      versionStart: "3.0"
+      repo: cb-golden-demo-org/sd-hackers-api
+    needs: test
 ##Shawn was here
