@@ -12,6 +12,7 @@ A Go-based REST API that mirrors Hacker News content, providing endpoints for to
 - 📱 Endpoints for different story types (top/show/ask)
 - 🧪 Comprehensive test suite
 
+
 ## Prerequisites
 
 - Go 1.23 or higher
