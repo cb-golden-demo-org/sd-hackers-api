@@ -1,5 +1,5 @@
 # Build stage
-FROM golang:1.23-alpine AS builder
+FROM golang:1.24-alpine AS builder
 
 # Install git for fetching dependencies
 RUN apk add --no-cache git
@@ -38,4 +38,4 @@ COPY --from=builder /app/hackers-api .
 EXPOSE 8080
 
 # Run the application
-CMD ["./hackers-api"] 
+CMD ["./hackers-api"]
