@@ -1,6 +1,6 @@
 module github.com/cloudbees-days/hackers-api
 
-go 1.23.4
+go 1.23.13
 
 require (
 	github.com/gin-gonic/gin v1.10.0
