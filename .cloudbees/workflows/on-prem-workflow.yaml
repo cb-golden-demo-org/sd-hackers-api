@@ -1,0 +1,19 @@
+apiVersion: automation.cloudbees.io/v1alpha1
+kind: workflow
+name: On prem workflow
+on:
+  workflow_dispatch:
+    inputs:
+      who-to-greet:
+        type: string
+        default: Sylvain
+        required: true
+jobs:
+  build:
+    runs-on: on-prem
+    steps:
+      - name: Say hello
+        uses: docker://golang:1.20.3-alpine3.17
+        shell: sh
+        run: |
+          echo "hello ${inputs.who-to-greet}"
