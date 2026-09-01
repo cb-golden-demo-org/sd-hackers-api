@@ -9,6 +9,7 @@ on:
 
 jobs:
   test:
+    runs-on: on-prem
     outputs:
       CODE_COVERAGE: ${{ steps.RunUnitTest.outputs.CODE_COVERAGE }}
     steps:
