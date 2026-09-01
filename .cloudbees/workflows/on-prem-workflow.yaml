@@ -16,4 +16,4 @@ jobs:
         uses: docker://golang:1.20.3-alpine3.17
         shell: sh
         run: |
-          echo "hello ${inputs.who-to-greet}"
+          echo "hello ${{ inputs.who-to-greet }}"
